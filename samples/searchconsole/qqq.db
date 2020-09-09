@@ -1,0 +1,4 @@
+insert into query (SCKey,Click,Impressions,CTR,Position) values('xvalueformatstring',2,0,0,9);
+insert into page (SCKey,Click,Impressions,CTR,Position) values('http://exam.kangbao.info/getItems.php?exam=dataengineer',4,0,0,9.25),('http://exam.kangbao.info/getItems.php?exam=dataengineer&name=',2,0,0,7),('http://exam.kangbao.info/getResult.php?exam=dataengineer',2,0,0,9);
+insert into country (SCKey,Click,Impressions,CTR,Position) values('bra',1,0,0,5),('ecu',4,0,0,9.25),('ita',1,0,0,9),('mex',1,0,0,9),('sau',1,0,0,9);
+insert into device (SCKey,Click,Impressions,CTR,Position) values('DESKTOP',8,0,0,8.625);

@@ -1,0 +1,52 @@
+CREATE DATABASE SC;
+CREATE TABLE query (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  SCKey varchar(255),
+  Click float,
+  Impressions float,
+  CTR float,
+  Position float
+);
+
+CREATE TABLE country (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  SCKey varchar(255),
+  Click float,
+  Impressions float,
+  CTR float,
+  Position float
+);
+
+CREATE TABLE device (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  SCKey varchar(255),
+  Click float,
+  Impressions float,
+  CTR float,
+  Position float
+);
+
+CREATE TABLE page (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  SCKey varchar(255),
+  Click float,
+  Impressions float,
+  CTR float,
+  Position float
+);
+
+CREATE TABLE searchAppearance (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  SCKey varchar(255),
+  Click float,
+  Impressions float,
+  CTR float,
+  Position float
+);
+
+
+
+
+
+
+ insert into query (ID,SCKey,Click,Impressions,CTR,Position) values (1,'sssss',1,2,3,4);

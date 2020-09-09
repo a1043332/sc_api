@@ -1,0 +1,22 @@
+#build artifacts
+*.py[cod]
+google_api_python_client.egg-info/
+build/
+dist/
+
+# Test files
+.nox/
+
+# Coverage files
+.coverage
+coverage.xml
+nosetests.xml
+
+# IDE files
+.idea
+.vscode
+
+samples/searchconsole/client_secrets.json
+
+
+*.dat

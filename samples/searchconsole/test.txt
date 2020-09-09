@@ -1,0 +1,2 @@
+[
+{'rows': [{'ctr': 0, 'keys': ['xvalueformatstring'], 'impressions': 2, 'clicks': 0, 'position': 9}], 'responseAggregationType': 'byProperty'}
