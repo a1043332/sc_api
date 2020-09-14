@@ -1,4 +1,4 @@
-insert into query (SCKey,Click,Impressions,CTR,Position) values('xvalueformatstring',2,0,0,9);
-insert into page (SCKey,Click,Impressions,CTR,Position) values('http://exam.kangbao.info/getItems.php?exam=dataengineer',4,0,0,9.25),('http://exam.kangbao.info/getItems.php?exam=dataengineer&name=',2,0,0,7),('http://exam.kangbao.info/getResult.php?exam=dataengineer',2,0,0,9);
-insert into country (SCKey,Click,Impressions,CTR,Position) values('bra',1,0,0,5),('ecu',4,0,0,9.25),('ita',1,0,0,9),('mex',1,0,0,9),('sau',1,0,0,9);
-insert into device (SCKey,Click,Impressions,CTR,Position) values('DESKTOP',8,0,0,8.625);
+insert into query (Date,SCKey,Click,Impressions,CTR,Position) values( '2020-08-02 ','xvalueformatstring',1,0,0,10);
+insert into page (Date,SCKey,Click,Impressions,CTR,Position) values('2020-08-02','http://exam.kangbao.info/getItems.php?exam=dataengineer',2,0,0,9.5),('2020-08-02','http://exam.kangbao.info/getItems.php?exam=dataengineer&name=',3,0,0,9),('2020-08-02','http://exam.kangbao.info/getResult.php?exam=dataengineer',1,0,0,10);
+insert into country (Date,SCKey,Click,Impressions,CTR,Position) values('2020-08-02','gbr',1,0,0,10),('2020-08-02','ind',4,0,0,9.5),('2020-08-02','zaf',1,0,0,8);
+insert into device (Date,SCKey,Click,Impressions,CTR,Position) values('2020-08-02','DESKTOP',6,0,0,9.333333333333334);

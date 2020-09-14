@@ -85,7 +85,7 @@ def main(argv):
   request = {
       'startDate': flags.start_date,
       'endDate': flags.end_date,
-      'dimensions': ['query'],
+      'dimensions': ['query','date'],
       'rowLimit': 10
   }
   response = execute_request(service, flags.property_uri, request)
@@ -97,18 +97,19 @@ def main(argv):
   
 
 #2  §âsponeÂ¦¨sql¡A¨ÿé   
-  sql = 'insert into query (SCKey,Click,Impressions,CTR,Position) values'
-  count =0
-  for x in response['rows']:
-    count+=1  
-    sql+='(\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
-  sql = sql[:-1]
-  sql+=';'  
-  print(sql)    
-  with open("qqq.db","w",encoding="utf-8") as f:
-    print(sql, file = f)
-    sqlInsert(sql)
-  f.close()    
+  count=0
+  if 'rows' in response:
+    sql = 'insert into query (Date,SCKey,Click,Impressions,CTR,Position) values'
+    for x in response['rows']:
+        count+=1  
+        sql+='( \''+ x['keys'][1] + ' \',\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
+    sql = sql[:-1]
+    sql+=';'  
+    print(sql)    
+    with open("qqq.db","w",encoding="utf-8") as f:
+        print(sql, file = f)
+        sqlInsert(sql)
+    f.close()    
 
 
 
@@ -133,25 +134,26 @@ def main(argv):
   request = {
       'startDate': flags.start_date,
       'endDate': flags.end_date,
-      'dimensions': ['page'],
+      'dimensions': ['page','date'],
       'rowLimit': 10
   }
   response = execute_request(service, flags.property_uri, request)
   print_table(response, 'Top Pages')
 
   #2  §âsponeÂ¦¨sql¡A¨ÿé   
-  sql = 'insert into page (SCKey,Click,Impressions,CTR,Position) values'
-  count =0
-  for x in response['rows']:
-    count+=1  
-    sql+='(\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
-  sql = sql[:-1]
-  sql+=';'  
-  print(sql)    
-  with open("qqq.db","a",encoding="utf-8") as f:
-    print(sql, file = f)
-    sqlInsert(sql)
-  f.close()     
+  count=0
+  if 'rows' in response:
+    sql = 'insert into page (Date,SCKey,Click,Impressions,CTR,Position) values'
+    for x in response['rows']:
+        count+=1  
+        sql+='(\''+x['keys'][1]+'\',\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
+    sql = sql[:-1]
+    sql+=';'  
+    print(sql)    
+    with open("qqq.db","a",encoding="utf-8") as f:
+        print(sql, file = f)
+        sqlInsert(sql)
+    f.close()     
 
   # Get the top 10 queries in India, sorted by click count, descending.
   request = {
@@ -195,46 +197,49 @@ def main(argv):
   request = {
       'startDate': flags.start_date,
       'endDate': flags.end_date,
-      'dimensions': ['country'],
+      'dimensions': ['country','date'],
       'rowLimit': 10
   }
   response = execute_request(service, flags.property_uri, request)
   print_table(response, 'country')
-  #2  §âsponeÂ¦¨sql¡A¨ÿé   
-  sql = 'insert into country (SCKey,Click,Impressions,CTR,Position) values'
-  count =0
-  for x in response['rows']:
-    count+=1  
-    sql+='(\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
-  sql = sql[:-1]
-  sql+=';'  
-  print(sql)    
-  with open("qqq.db","a",encoding="utf-8") as f:
-    print(sql, file = f)
-    sqlInsert(sql)
-  f.close() 
+  #2  §âsponeÂ¦¨sql¡A¨ÿé
+  count=0
+  if 'rows' in response:
+    sql = 'insert into country (Date,SCKey,Click,Impressions,CTR,Position) values'
+    for x in response['rows']:
+        count+=1  
+        sql+='(\''+x['keys'][1]+'\',\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
+    sql = sql[:-1]
+    sql+=';'  
+    print(sql)    
+    with open("qqq.db","a",encoding="utf-8") as f:
+        print(sql, file = f)
+        sqlInsert(sql)
+    f.close() 
 
   request = {
       'startDate': flags.start_date,
       'endDate': flags.end_date,
-      'dimensions': ['device'],
+      'dimensions': ['device','date'],
       'rowLimit': 10
   }
   response = execute_request(service, flags.property_uri, request)
   print_table(response, 'Group by country and device')
   #2  §âsponeÂ¦¨sql¡A¨ÿé   
-  sql = 'insert into device (SCKey,Click,Impressions,CTR,Position) values'
+  
   count =0
-  for x in response['rows']:
-    count+=1  
-    sql+='(\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
-  sql = sql[:-1]
-  sql+=';'  
-  print(sql)    
-  with open("qqq.db","a",encoding="utf-8") as f:
-    print(sql, file = f)
-    sqlInsert(sql)
-  f.close() 
+  if 'rows' in response:
+    sql = 'insert into device (Date,SCKey,Click,Impressions,CTR,Position) values'  
+    for x in response['rows']:
+        count+=1  
+        sql+='(\''+x['keys'][1]+'\',\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
+    sql = sql[:-1]
+    sql+=';'  
+    print(sql)    
+    with open("qqq.db","a",encoding="utf-8") as f:
+        print(sql, file = f)
+        sqlInsert(sql)
+    f.close() 
 
   request = {
       'startDate': flags.start_date,
@@ -249,7 +254,7 @@ def main(argv):
   count =0
  
   if 'rows' in response:
-    sql = 'insert into searchAppearance (SCKey,Click,Impressions,CTR,Position) values'  
+    sql = 'insert into searchAppearance (Date,SCKey,Click,Impressions,CTR,Position) values'  
     for x in response['rows']:
         count+=1  
         sql+='(\'' + x['keys'][0] + '\',' + str(x['impressions']) + ',' + str(x['clicks']) + ',' + str(x['ctr']) +',' + str(x['position']) +'),'
